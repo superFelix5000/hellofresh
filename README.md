@@ -1,2 +1,11 @@
-# hellofresh
-Playing around with deno and fresh https://fresh.deno.dev/
+# fresh project
+
+### Usage
+
+Start the project:
+
+```
+deno task start
+```
+
+This will watch the project directory and restart as necessary.
