@@ -1,5 +1,11 @@
 # fresh project
 
+A small blog using .md files as a playground for fresh
+- reading files
+- tests using Deno.test
+- routing
+- ...
+
 ### Usage
 
 Start the project:
