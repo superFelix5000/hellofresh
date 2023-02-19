@@ -29,3 +29,16 @@ export async function loadPost(id: string): Promise<Post | null> {
         content: body,
     }
 }
+
+export async function  listPosts(): Promise<Post[]> {
+    const promises = [];
+    for await (const entry of Deno.readDir("./data/posts")){
+        const id = entry.name.slice(0, -3);
+        promises.push(loadPost(id));
+        
+    }
+    const posts = await Promise.all(promises) as Post[];
+    posts.sort((a,b) => b.publishAt.getTime() - a.publishAt.getTime());
+    // TODO: casting to Post array since we're not dealing with the null case here
+    return posts;
+}
