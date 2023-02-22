@@ -5,6 +5,7 @@ snippet:  This is the second post
 ---
 
 Subtitle
+--------
 
 | Table | Column |
 | ----- | ------ |
