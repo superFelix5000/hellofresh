@@ -1,7 +1,7 @@
 import { MiddlewareHandlerContext } from "$fresh/server.ts";
 import { parse } from "https://esm.sh/accept-language-parser@1.5.0";
 import { State } from "../utils/state.ts";
-import {getCookies} from "$std/http/cookie.ts";
+import { getCookies } from "$std/http/cookie.ts";
 
 export function handler(req: Request, ctx: MiddlewareHandlerContext<State>) {
   ctx.state.locales = [];
