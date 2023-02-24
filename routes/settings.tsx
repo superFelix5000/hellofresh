@@ -4,7 +4,7 @@ import LocaleSelector from "../islands/LocaleSelector.tsx";
 import { State } from "../utils/state.ts";
 
 export const handler: Handlers<State, State> = {
-  async GET(_req, ctx) {
+  GET(_req, ctx) {
     return ctx.render(ctx.state);
   },
 

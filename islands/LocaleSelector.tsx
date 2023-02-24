@@ -1,21 +1,21 @@
 import { useState } from "preact/hooks";
 
-const localeFmt = new Intl.DisplayNames("en", {type: "language"});
+const localeFmt = new Intl.DisplayNames("en", { type: "language" });
 const date = new Date();
 
 export default function LocaleSelector() {
   const [locale, setLocale] = useState("");
 
-  let language:string | undefined = undefined;
-  let timeSample:string | undefined = undefined;
+  let language: string | undefined = undefined;
+  let timeSample: string | undefined = undefined;
   if (locale) {
     try {
-        const loc = new Intl.Locale(locale);
-        language = localeFmt.of(loc?.language);
-        const dateFmt = new Intl.DateTimeFormat(locale, {dateStyle: "full"});
-        timeSample = dateFmt.format(date);
+      const loc = new Intl.Locale(locale);
+      language = localeFmt.of(loc?.language);
+      const dateFmt = new Intl.DateTimeFormat(locale, { dateStyle: "full" });
+      timeSample = dateFmt.format(date);
     } catch {
-        // ignore error
+      // ignore error
     }
   }
 
@@ -36,12 +36,14 @@ export default function LocaleSelector() {
       >
         Save
       </button>
-      {language && timeSample && (<dl class="mt-4">
-        <dd class="font-bold">Language</dd>
-        <dt>{language}</dt>
-        <dd class="font-bold">Time sample</dd>
-        <dt>{timeSample}</dt>
-      </dl>)}
+      {language && timeSample && (
+        <dl class="mt-4">
+          <dd class="font-bold">Language</dd>
+          <dt>{language}</dt>
+          <dd class="font-bold">Time sample</dd>
+          <dt>{timeSample}</dt>
+        </dl>
+      )}
     </form>
   );
 }
